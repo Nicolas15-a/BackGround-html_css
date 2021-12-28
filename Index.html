@@ -6,16 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BackGround</title>
     <link rel="stylesheet" href="./Style.css">
+
 </head>
 <body>
-    <ul>
-        <li>
-            Ejemplo de Cambios
+        <div class="container">
+          <h2>
+            <span>Ejemplo Del texto</span><br>Grande
+          </h2>
+          </div>
+          <script src="./anime.min.js"></script>
+          <script>
+            const container=document.querySelector('.container')
+            for(var i=0;i<=100;i++)
+            {
+              const blocks=document.createElement('div');
+              blocks.classList.add('block');
+              container.appendChild(blocks);
+            }
+            //For Of Second blockes
+            const container1=document.querySelector('.container')
+            for(var i=0;i<=100;i++)
+            {
+              const blocks=document.createElement('div');
+              blocks.classList.add('blockes');
+              container1.appendChild(blocks);
+            }
 
-            <div>
-                Ejemplo 
-            </div>
-        </li>
-    </ul>
+            function animatedBlocks()
+            {
+              anime({
+                targets:'.block',
+                translateX:function(){
+                  return anime.random(-700,700);
+                },
+                translateY:function(){
+                  return anime.random(-500,500);
+                },
+                scale:function(){
+                  return anime.random(1,5);
+                },
+                  easing:'linear',
+                  duration:3000,
+                  delay:anime.stagger(10),
+                  complete:animatedBlocks,
+
+
+              })
+            }
+            function animatedBlocksR()
+            {
+              anime({
+                targets:'.blockes',
+                translateX:function(){
+                  return anime.random(-700,700);
+                },
+                translateY:function(){
+                  return anime.random(-500,500);
+                },
+                scale:function(){
+                  return anime.random(1,5);
+                },
+                  easing:'linear',
+                  duration:3000,
+                  delay:anime.stagger(10),
+                  complete:animatedBlocksR,
+
+
+              })
+            }
+            animatedBlocks(),animatedBlocksR()
+
+
+          </script>
+
+
+
 </body>
 </html>
